@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Taste of Friendship — Menu & Order</title>
+  <style>
+    :root{--bg:#0f172a;--card:#0b1220;--accent:linear-gradient(90deg,#f59e0b,#ef4444);--glass:rgba(255,255,255,0.04)}
+    html,body{height:100%;margin:0;font-family: 'Segoe UI', Tahoma, Arial; background: radial-gradient(circle at 10% 10%, rgba(99,102,241,0.08), transparent 10%), linear-gradient(180deg,#061021 0%, #07132a 100%); color:#e6eef8}
+    .wrap{max-width:1100px;margin:28px auto;padding:20px;display:grid;grid-template-columns:1fr 360px;gap:20px}
+    header{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:72px;height:72px;border-radius:14px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;color:#08101a;font-size:18px;box-shadow:0 8px 30px rgba(14,42,70,0.6)}
+    h1{margin:0;font-size:20px}
+    .sub{opacity:0.8;font-size:13px}
+
+    .menu{background:var(--glass);padding:18px;border-radius:12px;box-shadow:0 6px 30px rgba(2,6,23,0.6);overflow:auto}
+    .section{margin-bottom:16px}
+    .section h2{margin:0 0 10px 0;font-size:16px}
+    .item{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);margin-bottom:8px}
+    .item .left{display:flex;gap:12px;align-items:center}
+    .item input[type=number]{width:68px;padding:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+    .item .name{min-width:160px}
+    .right-panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:16px;border-radius:12px;position:sticky;top:24px;height:fit-content}
+    .total{font-size:20px;margin:8px 0;padding:10px;border-radius:8px;background:linear-gradient(90deg,#061226,#0a2130)}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:600}
+    .btn-primary{background:var(--accent);color:#07101b;box-shadow:0 8px 20px rgba(239,68,68,0.14)}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit}
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+    footer{grid-column:1/-1;margin-top:14px;text-align:center;opacity:0.7;font-size:13px}
+
+    /* WhatsApp floating */
+    .wa-float{position:fixed;right:22px;bottom:22px;background:#25D366;padding:14px;border-radius:50%;box-shadow:0 8px 30px rgba(37,211,102,0.18);display:flex;align-items:center;justify-content:center;color:#052017;font-weight:700}
+    .channel{position:fixed;right:22px;bottom:96px;background:#075E54;padding:12px;border-radius:12px;color:#fff}
+
+    /* Responsive */
+    @media(max-width:920px){.wrap{grid-template-columns:1fr;}.right-panel{position:relative;top:auto}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">T F</div>
+        <div>
+          <h1>Taste of Friendship</h1>
+          <div class="sub">VIP Menu — Barbecue & Shapta Rolls — Order online via WhatsApp</div>
+        </div>
+      </div>
+      <div style="text-align:right">
+        <div class="sub">Contact: <strong id="phoneDisp">0323-4279560</strong></div>
+        <div class="sub">WhatsApp Channel: <a id="waChannel" href="https://whatsapp.com/channel/0029VbAth0iK0IBnJVCfVm17" target="_blank" style="color:#ffd59e">Join Channel</a></div>
+      </div>
+    </header>
+
+    <main class="menu" aria-label="menu">
+      <!-- Barbecue Section -->
+      <section class="section" id="barbecue">
+        <h2>Barbecue Items</h2>
+        <div class="item"><div class="left"><div class="name">Haryali Chest Piece</div></div><div><span>420</span> PKR <input type="number" min="0" value="0" data-price="420" data-name="Haryali Chest Piece"></div></div>
+        <div class="item"><div class="left"><div class="name">Haryali Leg Piece</div></div><div><span>400</span> PKR <input type="number" min="0" value="0" data-price="400" data-name="Haryali Leg Piece"></div></div>
+        <div class="item"><div class="left"><div class="name">Malia Chest Piece</div></div><div><span>440</span> PKR <input type="number" min="0" value="0" data-price="440" data-name="Malia Chest Piece"></div></div>
+        <div class="item"><div class="left"><div class="name">Malai Leg Piece</div></div><div><span>420</span> PKR <input type="number" min="0" value="0" data-price="420" data-name="Malai Leg Piece"></div></div>
+        <div class="item"><div class="left"><div class="name">Chest Piece</div></div><div><span>380</span> PKR <input type="number" min="0" value="0" data-price="380" data-name="Chest Piece"></div></div>
+        <div class="item"><div class="left"><div class="name">Leg Piece</div></div><div><span>340</span> PKR <input type="number" min="0" value="0" data-price="340" data-name="Leg Piece"></div></div>
+        <div class="item"><div class="left"><div class="name">Tikka Boti</div></div><div><span>150</span> PKR <input type="number" min="0" value="0" data-price="150" data-name="Tikka Boti"></div></div>
+        <div class="item"><div class="left"><div class="name">Malai Tikka</div></div><div><span>200</span> PKR <input type="number" min="0" value="0" data-price="200" data-name="Malai Tikka"></div></div>
+        <div class="item"><div class="left"><div class="name">Tahi Tikka</div></div><div><span>250</span> PKR <input type="number" min="0" value="0" data-price="250" data-name="Tahi Tikka"></div></div>
+        <div class="item"><div class="left"><div class="name">Haryali Tikka</div></div><div><span>170</span> PKR <input type="number" min="0" value="0" data-price="170" data-name="Haryali Tikka"></div></div>
+        <div class="item"><div class="left"><div class="name">Cheese Tikka</div></div><div><span>200</span> PKR <input type="number" min="0" value="0" data-price="200" data-name="Cheese Tikka"></div></div>
+        <div class="item"><div class="left"><div class="name">Chicken Rashmi Kabab</div></div><div><span>140</span> PKR <input type="number" min="0" value="0" data-price="140" data-name="Chicken Rashmi Kabab"></div></div>
+      </section>
+
+      <!-- Shapta / Paratha Rolls Section -->
+      <section class="section" id="rolls">
+        <h2>Shapta / Paratha Rolls</h2>
+        <div class="item"><div class="left"><div class="name">Special Shapta Roll</div></div><div><span>350</span> PKR <input type="number" min="0" value="0" data-price="350" data-name="Special Shapta Roll"></div></div>
+        <div class="item"><div class="left"><div class="name">Cheese Shapta Roll</div></div><div><span>400</span> PKR <input type="number" min="0" value="0" data-price="400" data-name="Cheese Shapta Roll"></div></div>
+        <div class="item"><div class="left"><div class="name">Creamy Shapta Roll</div></div><div><span>380</span> PKR <input type="number" min="0" value="0" data-price="380" data-name="Creamy Shapta Roll"></div></div>
+        <div class="item"><div class="left"><div class="name">Creamy Cheese Shapta Roll</div></div><div><span>450</span> PKR <input type="number" min="0" value="0" data-price="450" data-name="Creamy Cheese Shapta Roll"></div></div>
+        <div class="item"><div class="left"><div class="name">Achari Shapta Roll</div></div><div><span>370</span> PKR <input type="number" min="0" value="0" data-price="370" data-name="Achari Shapta Roll"></div></div>
+        <div class="item"><div class="left"><div class="name">Achari Cheese Shapta Roll</div></div><div><span>400</span> PKR <input type="number" min="0" value="0" data-price="400" data-name="Achari Cheese Shapta Roll"></div></div>
+        <div class="item"><div class="left"><div class="name">Peri Peri Shapta Roll</div></div><div><span>380</span> PKR <input type="number" min="0" value="0" data-price="380" data-name="Peri Peri Shapta Roll"></div></div>
+        <div class="item"><div class="left"><div class="name">Cheese Peri Peri Shapta Roll</div></div><div><span>450</span> PKR <input type="number" min="0" value="0" data-price="450" data-name="Cheese Peri Peri Shapta Roll"></div></div>
+        <div class="item"><div class="left"><div class="name">Malai Boti Paratha Roll</div></div><div><span>300</span> PKR <input type="number" min="0" value="0" data-price="300" data-name="Malai Boti Paratha Roll"></div></div>
+        <div class="item"><div class="left"><div class="name">Cheese Malai Boti Paratha Roll</div></div><div><span>380</span> PKR <input type="number" min="0" value="0" data-price="380" data-name="Cheese Malai Boti Paratha Roll"></div></div>
+        <div class="item"><div class="left"><div class="name">Mayo Garlic Paratha Roll</div></div><div><span>370</span> PKR <input type="number" min="0" value="0" data-price="370" data-name="Mayo Garlic Paratha Roll"></div></div>
+        <div class="item"><div class="left"><div class="name">Barbique Paratha Roll</div></div><div><span>300</span> PKR <input type="number" min="0" value="0" data-price="300" data-name="Barbique Paratha Roll"></div></div>
+        <div class="item"><div class="left"><div class="name">Cheese Barbique Paratha Roll</div></div><div><span>370</span> PKR <input type="number" min="0" value="0" data-price="370" data-name="Cheese Barbique Paratha Roll"></div></div>
+        <div class="item"><div class="left"><div class="name">Kabab Paratha Roll</div></div><div><span>250</span> PKR <input type="number" min="0" value="0" data-price="250" data-name="Kabab Paratha Roll"></div></div>
+        <div class="item"><div class="left"><div class="name">Cheese Kabab Paratha Roll</div></div><div><span>300</span> PKR <input type="number" min="0" value="0" data-price="300" data-name="Cheese Kabab Paratha Roll"></div></div>
+        <div class="item"><div class="left"><div class="name">Puri Paratha</div></div><div><span>70</span> PKR <input type="number" min="0" value="0" data-price="70" data-name="Puri Paratha"></div></div>
+      </section>
+
+    </main>
+
+    <aside class="right-panel">
+      <h3>Order Summary</h3>
+      <div id="summaryList" style="max-height:360px;overflow:auto;margin-bottom:8px"></div>
+      <div class="total">Total: <span id="totalAmount">0</span> PKR</div>
+      <div class="actions">
+        <button class="btn btn-primary" id="printBtn">Print Bill</button>
+        <button class="btn btn-ghost" id="copyBtn">Copy Order Text</button>
+      </div>
+      <hr style="border:none;border-top:1px solid rgba(255,255,255,0.04);margin:12px 0" />
+      <div style="font-size:13px;opacity:0.9">Order via WhatsApp Channel (public):</div>
+      <a class="btn" href="https://whatsapp.com/channel/0029VbAth0iK0IBnJVCfVm17" target="_blank" style="display:inline-block;margin:8px 0;padding:10px;border-radius:8px;background:#075E54;color:white;text-decoration:none">Open Channel</a>
+      <div style="margin-top:10px;font-size:13px;opacity:0.9">Or send to our number:</div>
+      <a id="waNumberLink" class="btn btn-primary" href="#" style="margin-top:8px;display:inline-block;text-decoration:none">Send Order to WhatsApp</a>
+    </aside>
+
+    <footer>Made for <strong>Taste of Friendship</strong> — Save this file as <code>index.html</code> and open in browser on phone or PC.</footer>
+  </div>
+
+  <!-- floating WA icons -->
+  <a class="channel" href="https://whatsapp.com/channel/0029VbAth0iK0IBnJVCfVm17" target="_blank">Join Channel</a>
+  <a class="wa-float" id="waFloat" href="#" title="Order on WhatsApp">WA</a>
+
+  <script>
+    // Configuration (change only these values if needed)
+    const PHONE_DISPLAY = '0323-4279560';
+    const PHONE_E164 = '923234279560'; // +92 323 4279560 (for wa.me links)
+    const CHANNEL_LINK = 'https://whatsapp.com/channel/0029VbAth0iK0IBnJVCfVm17';
+
+    document.getElementById('phoneDisp').innerText = PHONE_DISPLAY;
+    document.getElementById('waChannel').href = CHANNEL_LINK;
+
+    const inputs = Array.from(document.querySelectorAll('input[type=number]'));
+    const summary = document.getElementById('summaryList');
+    const totalEl = document.getElementById('totalAmount');
+
+    function update() {
+      let lines = [];
+      let total = 0;
+      summary.innerHTML = '';
+      inputs.forEach(inp => {
+        const qty = Number(inp.value || 0);
+        const price = Number(inp.dataset.price);
+        const name = inp.dataset.name;
+        if(qty>0){
+          const subtotal = qty*price;
+          total += subtotal;
+          const el = document.createElement('div');
+          el.style.padding='8px';el.style.borderBottom='1px solid rgba(255,255,255,0.03)';
+          el.innerHTML = `<div style="display:flex;justify-content:space-between"><div>${qty} × ${name}</div><div>${subtotal} PKR</div></div>`;
+          summary.appendChild(el);
+          lines.push(`${qty}x ${name} — ${subtotal} PKR`);
+        }
+      });
+      totalEl.innerText = total;
+      window.currentOrderText = (lines.length?lines.join('\n')+'\n\nTotal: '+total+' PKR':'(No items)');
+      // update wa links as text changes
+      const url = waSendURL('Hello, I want to place an order:\n\n'+window.currentOrderText);
+      document.getElementById('waNumberLink').href = url;
+      document.getElementById('waFloat').href = url;
+    }
+
+    inputs.forEach(i => i.addEventListener('input', update));
+    update();
+
+    // Print button — opens printable receipt
+    document.getElementById('printBtn').addEventListener('click', ()=>{
+      const now = new Date();
+      let html = `<!doctype html><html><head><meta charset="utf-8"><title>Receipt</title><style>body{font-family:Arial;color:#111;padding:20px}h2{margin-top:0}</style></head><body>`;
+      html += `<h2>Taste of Friendship — Receipt</h2>`;
+      html += `<div>Phone: ${PHONE_DISPLAY}</div>`;
+      html += `<div>Date: ${now.toLocaleString()}</div><hr>`;
+      html += '<pre>'+window.currentOrderText+'</pre>';
+      html += '</body></html>';
+      const w = window.open('','_blank');
+      w.document.write(html);
+      w.document.close();
+      w.focus();
+      w.print();
+    });
+
+    // Copy order
+    document.getElementById('copyBtn').addEventListener('click', async ()=>{
+      try{
+        await navigator.clipboard.writeText(window.currentOrderText);
+        alert('Order copied to clipboard.');
+      }catch(e){alert('Copy failed — please copy manually:\n'+window.currentOrderText)}
+    });
+
+    // WhatsApp send — opens chat with prefilled message
+    function waSendURL(text){
+      const encoded = encodeURIComponent(text);
+      return `https://wa.me/${PHONE_E164}?text=${encoded}`;
+    }
+    document.getElementById('waNumberLink').href = waSendURL('Hello, I want to place an order:\n\n'+window.currentOrderText);
+    document.getElementById('waFloat').href = waSendURL('Hello, I want to place an order:\n\n'+window.currentOrderText);
+
+  </script>
+</body>
+</html>
