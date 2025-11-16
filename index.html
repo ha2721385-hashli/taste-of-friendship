@@ -160,20 +160,37 @@
     update();
 
     // Print button — opens printable receipt
-    document.getElementById('printBtn').addEventListener('click', ()=>{
-      const now = new Date();
-      let html = `<!doctype html><html><head><meta charset="utf-8"><title>Receipt</title><style>body{font-family:Arial;color:#111;padding:20px}h2{margin-top:0}</style></head><body>`;
-      html += `<h2>Taste of Friendship — Receipt</h2>`;
-      html += `<div>Phone: ${PHONE_DISPLAY}</div>`;
-      html += `<div>Date: ${now.toLocaleString()}</div><hr>`;
-      html += '<pre>'+window.currentOrderText+'</pre>';
-      html += '</body></html>';
-      const w = window.open('','_blank');
-      w.document.write(html);
-      w.document.close();
-      w.focus();
-      w.print();
-    });
+    document.getElementById('printBtn').addEventListener('click', () => {
+    const now = new Date();
+
+    let html = `
+    <!doctype html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Receipt</title>
+    </head>
+    <body>
+        <h2>Taste of Friendship — Receipt</h2>
+        <div>Date: ${now.toLocaleString()}</div>
+        <pre>${window.currentOrderText}</pre>
+    </body>
+    </html>
+    `;
+
+    const w = window.open('', '_blank');
+    w.document.write(html);
+    w.document.close();
+    w.focus();
+
+    // First print
+    w.print();
+
+    // Second print after 1.5 seconds
+    setTimeout(() => {
+        w.print();
+    }, 1500);
+});
 
     // Copy order
     document.getElementById('copyBtn').addEventListener('click', async ()=>{
